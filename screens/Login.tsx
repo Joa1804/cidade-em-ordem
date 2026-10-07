@@ -1,118 +1,120 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, Alert,ActivityIndicator, StatusBar,} from 'react-native';
-
-
+import {View, Text, TouchableOpacity, Image, StyleSheet, Alert, StatusBar,} from 'react-native';
+import React from 'react';
 
 const tema = {
-  primaria: '#0B4F8A', 
-  primariaEscura: '#083A66',
-  destaque: '#2E9E5B', 
-  fundo: '#F3F5F8',
-  card: '#FFFFFF',
+  fundo: '#FFFFFF',
+  titulo: '#7A7A7A',
+  textoSuave: '#7A7A7A',
   texto: '#1F2933',
-  textoSuave: '#5F6B7A',
-  borda: '#D9DFE7',
+  verdeAgua: '#3FB0A8',
 };
 
-
-
 export default function Login() {
-    return (
-        <View style={styles.tela}>
-            <Text style={styles.titulo}>Indaiatuba em ordem</Text>
-            <Text style={styles.subtitulo}>Plataforma inteligente de Zeldaria Urbana</Text>
-        </View>
-    );
+  function entrarGovBr(): void {
+    Alert.alert('gov.br', 'Login com gov.br ainda não integrado.');
+  }
 
+  function abrirPoliticaPrivacidade(): void {
+    Alert.alert('Política de Privacidade', 'Página ainda não definida.');
+  }
+
+  return (
+    <View style={styles.tela}>
+      <StatusBar barStyle="dark-content" backgroundColor={tema.fundo} />
+
+      <View style={styles.topo}>
+        <Text style={styles.titulo}>INDAIATUBA EM ORDEM</Text>
+        <Text style={styles.subtitulo}>
+          Plataforma Inteligente de Zeladoria Urbana
+        </Text>
+      </View>
+
+      <View style={styles.areaLogo}>
+        <Image
+          source={require('../assets/logo-minha-indaiatuba.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+
+      <View style={styles.rodape}>
+        <TouchableOpacity style={styles.botaoGov} onPress={entrarGovBr}>
+          <Text style={styles.botaoGovTexto}>
+            Entrar com <Text style={styles.govBold}>gov.br</Text>
+          </Text>
+        </TouchableOpacity>
+
+        <Text style={styles.politica}>
+          Acessar{' '}
+          <Text style={styles.politicaLink} onPress={abrirPoliticaPrivacidade}>
+            Política de Privacidade
+          </Text>
+        </Text>
+      </View>
+    </View>
+  );
 }
 
-
 const styles = StyleSheet.create({
-    tela: { 
-        flex: 1,
-         backgroundColor: tema.fundo 
-    },
-  cabecalho: {
-    backgroundColor: tema.primaria,
-    paddingTop: 48,
-    paddingBottom: 16,
-    paddingHorizontal: 20,
+  tela: {
+    flex: 1,
+    backgroundColor: tema.fundo,
+    paddingHorizontal: 24,
+    paddingTop: 64,
+    paddingBottom: 40,
   },
-  cabecalhoTitulo: { 
-    color: '#fff', 
-    fontSize: 20, 
-    fontWeight: '700' 
-    },
-  cabecalhoSub: { 
-    color: '#D6E4F2', 
-    fontSize: 13, 
-    marginTop: 2 
-    },
-  conteudo: { 
-    padding: 16, 
-    paddingBottom: 40
-    },
-  titulo: { 
-    fontSize: 22, 
-    fontWeight: '700', 
-    color: tema.texto
-    },
-  card: {
-    backgroundColor: tema.card,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: tema.borda,
-    padding: 14,
-    marginTop: 12,
-  },
-  rotulo: { 
-    fontSize: 15, 
-    fontWeight: '600', 
-    color: tema.texto, 
-    marginBottom: 10 
-    },
-  linha: { 
-    flexDirection: 'row', 
-    marginTop: 10 
-    },
-  botaoContorno: {
-    borderWidth: 1.5,
-    borderColor: tema.primaria,
-    borderRadius: 6,
-    paddingVertical: 11,
+  topo: {
     alignItems: 'center',
   },
-  botaoContornoTexto: { 
-    color: tema.primaria, 
-    fontWeight: '600' 
-    },
-  link: { 
-    color: tema.primaria, 
-    fontWeight: '600', 
-    fontSize: 14 
+  titulo: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: tema.titulo,
+    textAlign: 'center',
+    lineHeight: 34,
   },
-
-  input: {
-    borderWidth: 1,
-    borderColor: tema.borda,
-    borderRadius: 6,
-    minHeight: 90,
-    padding: 10,
-    textAlignVertical: 'top',
+  subtitulo: {
+    fontSize: 16,
+    color: tema.textoSuave,
+    textAlign: 'center',
+    marginTop: 28,
+    paddingHorizontal: 24,
+  },
+  areaLogo: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    width: '100%',
+    height: 260,
+  },
+  rodape: {
+    alignItems: 'center',
+  },
+  botaoGov: {
+    width: '100%',
+    borderWidth: 2,
+    borderColor: tema.verdeAgua,
+    borderRadius: 16,
+    paddingVertical: 18,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  botaoGovTexto: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: tema.textoSuave,
+  },
+  govBold: {
+    fontWeight: '800',
+  },
+  politica: {
+    marginTop: 20,
+    fontSize: 14,
     color: tema.texto,
   },
-  botaoEnviar: {
-    backgroundColor: tema.destaque,
-    borderRadius: 8,
-    paddingVertical: 15,
-    alignItems: 'center',
-    marginTop: 20,
+  politicaLink: {
+    color: tema.verdeAgua,
   },
-  botaoEnviarTexto: { 
-    color: '#fff', 
-    fontSize: 16, 
-    fontWeight: '700' 
-    },
-    subtitulo: {
-        fontSize: 16,
-        color: tema.textoSuave,}
 });
