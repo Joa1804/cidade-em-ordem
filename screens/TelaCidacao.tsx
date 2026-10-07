@@ -31,6 +31,7 @@ const CATEGORIAS = [
 ];
 
 export default function TelaCidacao() {
+  
     const [foto, setFoto] = useState<string | null>(null);
     const [coord, setCoord] = useState<{ latitude: number; longitude: number } | null>(null);
     const [categoria, setCategoria] = useState<string | null>(null);
@@ -131,39 +132,6 @@ export default function TelaCidacao() {
               <Text style={styles.botaoContornoTexto}>Galeria</Text>
             </TouchableOpacity>
           </View>
-        </View>
- 
-        {/* MAPA */}
-        <View style={styles.card}>
-          <Text style={styles.rotulo}>Localização</Text>
-          {carregandoLocal || !coord ? (
-            <View style={styles.mapaCarregando}>
-              <ActivityIndicator color={tema.primaria} />
-              <Text style={styles.fotoVaziaTexto}>Buscando sua localização…</Text>
-            </View>
-          ) : (
-            <MapView
-              style={styles.mapa}
-              region={{
-                latitude: coord.latitude,
-                longitude: coord.longitude,
-                latitudeDelta: 0.004,
-                longitudeDelta: 0.004,
-              }}
-              onPress={(e) => setCoord(e.nativeEvent.coordinate)}
-            >
-              <Marker
-                coordinate={coord}
-                draggable
-                pinColor={tema.primaria}
-                onDragEnd={(e) => setCoord(e.nativeEvent.coordinate)}
-              />
-            </MapView>
-          )}
-          <Text style={styles.ajuda}>Arraste o pino ou toque no mapa para ajustar o local.</Text>
-          <TouchableOpacity onPress={obterLocalizacao}>
-            <Text style={styles.link}>Usar minha localização atual</Text>
-          </TouchableOpacity>
         </View>
  
         {/* CATEGORIA */}
