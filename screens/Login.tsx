@@ -1,17 +1,23 @@
-import {View, Text, TouchableOpacity, Image, StyleSheet, Alert, StatusBar,} from 'react-native';
-import React from 'react';
+import {View,Text,TouchableOpacity,Image,StyleSheet,Alert,StatusBar,} from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../componets/routes.ts';
+
+type Props = NativeStackScreenProps<
+  typeof RootStackParamList,
+  'Login'
+>;
 
 const tema = {
   fundo: '#FFFFFF',
   titulo: '#7A7A7A',
   textoSuave: '#7A7A7A',
   texto: '#1F2933',
-  verdeAgua: '#3FB0A8',
+  verdeAgua: '#3FB0A8', 
 };
 
-export default function Login() {
+export default function Login({ navigation }: Props) {
   function entrarGovBr(): void {
-    Alert.alert('gov.br', 'Login com gov.br ainda não integrado.');
+    navigation.replace('Home');
   }
 
   function abrirPoliticaPrivacidade(): void {
@@ -22,13 +28,15 @@ export default function Login() {
     <View style={styles.tela}>
       <StatusBar barStyle="dark-content" backgroundColor={tema.fundo} />
 
+      {/* Topo: título e subtítulo */}
       <View style={styles.topo}>
-        <Text style={styles.titulo}>INDAIATUBA EM ORDEM</Text>
+        <Text style={styles.titulo}>INDAIATUBA{'\n'}EM ORDEM</Text>
         <Text style={styles.subtitulo}>
           Plataforma Inteligente de Zeladoria Urbana
         </Text>
       </View>
 
+      {/* Imagem (logo Minha Indaiatuba) */}
       <View style={styles.areaLogo}>
         <Image
           source={require('../assets/logo-minha-indaiatuba.png')}
@@ -37,6 +45,7 @@ export default function Login() {
         />
       </View>
 
+      {/* Rodapé: botão e política */}
       <View style={styles.rodape}>
         <TouchableOpacity style={styles.botaoGov} onPress={entrarGovBr}>
           <Text style={styles.botaoGovTexto}>

@@ -1,6 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, Alert,ActivityIndicator, StatusBar,} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import MapView, {Marker } from 'react-native-maps';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 
@@ -31,7 +30,7 @@ const CATEGORIAS = [
 ];
 
 export default function TelaCidacao() {
-  
+
     const [foto, setFoto] = useState<string | null>(null);
     const [coord, setCoord] = useState<{ latitude: number; longitude: number } | null>(null);
     const [categoria, setCategoria] = useState<string | null>(null);
