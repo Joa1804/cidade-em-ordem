@@ -1,3 +1,6 @@
+
+import React from 'react';
+
 const links = [
   { id: 'gerencial', label: 'Dashboard Gerencial', icon: 'bi-speedometer2' },
   { id: 'central', label: 'Central de Ocorrência', icon: 'bi-geo' },

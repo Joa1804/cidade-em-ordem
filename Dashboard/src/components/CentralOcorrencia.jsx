@@ -1,3 +1,5 @@
+import React from 'react';
+
 import MapPanel from './MapPanel.jsx';
 
 const priorities = [

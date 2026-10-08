@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { MapContainer, TileLayer, CircleMarker, Popup, ZoomControl } from 'react-leaflet';
 
 const ocorrencias = [
