@@ -1,20 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  Modal,
-  FlatList,
-  StyleSheet,
-  Alert,
-  StatusBar,
-  KeyboardAvoidingView,
-  Platform,
-  ImageSourcePropType,
-} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity,ScrollView,Image,Modal,FlatList,StyleSheet,Alert,StatusBar,KeyboardAvoidingView,Platform,ImageSourcePropType,} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
@@ -345,7 +330,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
   },
-  fotoImagem: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  fotoImagem: { ...StyleSheet.absoluteFill, width: '100%', height: '100%' },
   pilula: {
     backgroundColor: tema.verdeAgua,
     borderRadius: 16,
